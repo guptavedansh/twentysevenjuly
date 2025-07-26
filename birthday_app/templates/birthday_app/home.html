@@ -1,0 +1,118 @@
+{% extends "birthday_app/base.html" %}
+{% load static %}
+{% block content %}
+    <audio id="blip-sound" src="{% static 'birthday_app/blip1.m4a' %}" preload="auto" autoplay muted></audio>
+    
+    <div class="lights">
+        <span class="letter">H</span>
+        <span class="letter">A</span>
+        <span class="letter">P</span>
+        <span class="letter">P</span>
+        <span class="letter">Y</span>
+        <span class="letter">&nbsp;</span>
+        <span class="letter">B</span>
+        <span class="letter">I</span>
+        <span class="letter">R</span>
+        <span class="letter">T</span>
+        <span class="letter">H</span>
+        <span class="letter">D</span>
+        <span class="letter">A</span>
+        <span class="letter">Y</span>
+    </div>
+    <!-- Image Gallery Container -->
+    <div class="image-gallery">
+        <img src="{% static 'birthday_app/anu_home_page.png' %}" alt="Image 1" class="gallery-img" />
+    </div>
+    <script>
+        const letters = document.querySelectorAll('.letter');
+        
+        let index = 0;
+        function revealLetter() {
+            // Remove glow effect from all
+            letters.forEach(l => l.classList.remove('visible'));
+            // Reveal and play sound for the current letter if not a space
+            if (letters[index].textContent !== " ") {
+                letters[index].classList.add('visible');
+            }
+            index++;
+            if (index < letters.length) {
+                setTimeout(revealLetter, 280);
+            }
+            else{
+                letters.forEach(l=>{
+                if(l.textContent!==" ") l.classList.add('visible')
+            })
+        }
+        }
+        // Hide spaces
+        letters.forEach((el) => {
+            if (el.textContent === " ") el.style.opacity = "0";
+        });
+
+        setTimeout(revealLetter, 800);        
+    </script>
+{% endblock content %}
+{% block styles %}
+        .lights {
+            display: flex;
+            gap: 16px;
+            
+            margin-top: 50px; 
+            display: flex;
+            flex-direction: row;  /* or column, row-reverse, column-reverse */
+            flex-wrap: nowrap;    /* or wrap, wrap-reverse */
+            justify-content: center; /* control spacing of letters inside the container */
+            align-items: center; 
+        }
+        .letter {
+            font-family: 'Benguiat', 'ITC Benguiat', serif;
+            font-size: 4rem;
+            color: #000;
+            opacity: 0.15;
+            transition: opacity 0.3s, text-shadow 0.3s;
+            position: relative;
+        }
+        .letter.visible {
+            opacity: 1;
+            text-shadow: 0 0 15px #ffe082, 0 0 30px #fffde7;
+        }
+         /* Image gallery styles */
+    .image-gallery {
+        margin: 36px auto 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+    }
+    .gallery-img {
+    width: auto;
+    height: auto;
+    max-width: 500px;
+    max-height: 500px;
+    border-radius: 12px;
+    object-fit: cover;
+    display: block;
+    border: 2.5px solid #ce41e7ff;
+    transition: transform 0.2s;
+    filter: drop-shadow(0 0 0 #ff69b3) drop-shadow(0 0 6px #ff69b3);
+    border: none;
+    background: none;
+}
+    .gallery-img:hover {
+        transform: scale(1.045);
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 700px) {
+        .birthday-message-container {
+            padding: 26px 6vw 23px 6vw;
+            max-width: 98vw;
+        }
+        .gallery-img {
+            width: 100%;
+            height: auto;
+            max-width: 500px;
+            aspect-ratio: 1 / 1;
+        }
+    }
+{% endblock styles %}

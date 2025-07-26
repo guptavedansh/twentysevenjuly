@@ -1,0 +1,103 @@
+{% extends 'birthday_app/base.html' %}
+{% load static %}
+{% block styles %}
+<style>
+.birthday-message-container {
+    background: linear-gradient(120deg, #fff8fc, #ffeefa 85%, #e1bee7);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(210, 161, 255, 0.17);
+    margin: 40px auto 24px auto;
+    max-width: 650px;
+    padding: 46px 30px 38px 30px;
+    text-align: center;
+    position: relative;
+}
+
+.birthday-message-container h2 {
+    color: #ca57e2;
+    font-family: 'Benguiat', 'ITC Benguiat', serif;
+    letter-spacing: 1.2px;
+    font-size: 2rem;
+    margin-bottom: 26px;
+}
+
+.birthday-message-container p {
+    color: #434161;
+    font-size: 1.25rem;
+    margin-top: 0;
+    line-height: 1.75;
+    white-space: pre-line;
+}
+
+.image-gallery {
+    margin: 36px auto 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+}
+
+.gallery-img {
+    width: 500px;
+    height: 500px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    object-fit: cover;
+    display: block;
+    background: #f6e3ff;
+    border: 2.5px solid #ce41e7ff;
+    transition: transform 0.2s;
+}
+
+.gallery-img:hover {
+    transform: scale(1.045);
+}
+
+/* Responsive tweaks */
+@media (max-width: 700px) {
+    .birthday-message-container {
+        padding: 26px 6vw 23px 6vw;
+        max-width: 98vw;
+    }
+    .gallery-img {
+        width: 500px;
+        height: 500px;
+    }
+}
+</style>
+{% endblock styles %}
+
+{% block content %}
+<div class="birthday-message-container">
+    <h2>
+        To my Lovely, Breathtaking, Beautiful Girlfriend,
+    </h2>
+    <p>
+        Happy Birthday, my love. You are turning 22 now—slowly, you might feel that you are getting closer to 30. But I am here to make you feel like we are still 18 and young at heart.
+
+        A year ago, I was blessed to celebrate your 21st birthday, and I am grateful to witness you at your happiest on your big day. It has also been a year for us <3, and it feels complete with you. I fall for you every day, and I am grateful to have you in every single moment of my life.
+
+        Even though you are a 22-year-old adult now, you are still a baby to me—you always will be. I am absolutely happy to be a part of your life, your celebrations, and even your sorrow or failures. In sickness and in health, you have always been there for me. Even on the hardest days of my life, you have stood by me, no matter what.
+
+        Also, I have never met a girl who is so mature for her age. I often question myself: am I really the mature one between us? (Haha.) Well, you complete me. When I am immature, you are the one who stays mature and balances things out—and the reverse is also true. 😁
+
+        In the past year, I’ve learned just how talented, mentally strong, and incredibly loving and compassionate you are. You are not just beautiful on the outside, but also on the inside. I am glad to have you in my life, and I would work my hardest in every way to keep you.
+
+        I love you, Ananya Iyer. You are a blessing to me, and you always will be. ❤️
+
+        I want to add so much more to this website for you, but I just have too little time right now. 😓
+
+        I love you, and Happy Birthday, baby! ❤️❤️❤️
+
+        Yours and yours forever,
+        Vuvu (or your Chundali 😂)
+    </p>
+    <div class="image-gallery">
+        <img src="{% static 'birthday_app/anu1.jpg' %}" class="gallery-img" alt="Memory 1">
+        <img src="{% static 'birthday_app/vuvuanu1.jpg' %}" class="gallery-img" alt="Memory 2">
+        <img src="{% static 'birthday_app/vuvuanu2.jpg' %}" class="gallery-img" alt="Memory 3">
+        <img src="{% static 'birthday_app/vuvuanu3.jpg' %}" class="gallery-img" alt="Memory 4">
+        <img src="{% static 'birthday_app/vuvuanu4.jpg' %}" class="gallery-img" alt="Memory 5">
+    </div>
+</div>
+{% endblock content %}

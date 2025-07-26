@@ -1,0 +1,88 @@
+{% extends 'birthday_app/base.html' %}
+{% load static %}
+{% block styles %}
+<style>
+.birthday-message-container {
+    background: linear-gradient(120deg, #fff8fc, #ffeefa 85%, #e1bee7);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(210, 161, 255, 0.17);
+    margin: 40px auto 24px auto;
+    max-width: 650px;
+    padding: 46px 30px 38px 30px;
+    text-align: center;
+    position: relative;
+}
+
+.birthday-message-container h2 {
+    color: #ca57e2;
+    font-family: 'Benguiat', 'ITC Benguiat', serif;
+    letter-spacing: 1.2px;
+    font-size: 2rem;
+    margin-bottom: 26px;
+}
+
+.birthday-message-container p {
+    color: #434161;
+    font-size: 1.25rem;
+    margin-top: 0;
+    line-height: 1.75;
+    white-space: pre-line;
+}
+
+.image-gallery {
+    margin: 36px auto 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+}
+
+.gallery-img {
+    width: 500px;
+    height: 500px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    object-fit: cover;
+    display: block;
+    background: #f6e3ff;
+    border: 2.5px solid #ce41e7ff;
+    transition: transform 0.2s;
+}
+
+.gallery-img:hover {
+    transform: scale(1.045);
+}
+
+/* Responsive tweaks */
+@media (max-width: 700px) {
+    .birthday-message-container {
+        padding: 26px 6vw 23px 6vw;
+        max-width: 98vw;
+    }
+    .gallery-img {
+        width: 500px;
+        height: 500px;
+    }
+}
+</style>
+{% endblock styles %}
+
+{% block content %}
+<div class="birthday-message-container">
+    <h2>
+        From your Cousin and your BLR Kiddo haha
+    </h2>
+    <p>
+        To my p town mom, 
+        Happy birthday board game queen!!✨✨ Oh how i wish i was with you rn, we would be all curled up in the sofa playing go fish for the 350th time( you losing 349 rounds ofc). I miss our carefree impulsive meridian trips, flea market pit stops and occasional diy shoplifting 😝😝. From glamming Venky up with talcum powder to cooking gaand faad dinners(that was mostly you let’s be fr). Have to admit that i loved being your Wakad passenger princess. Thank you for stalking me half asleep until i reached Loni. Please stop ruining ur white tops and tripping over air. Venky fam’s legacy is in ur hands maam 🙏🏽🙏🏽 You’ll always be my dil ka tadka jigarthanda or wtvr. Love you gng loads of chummi chaati 🫶🏻🫶🏻🫶🏻
+        Love,
+        Vandu :)
+    </p>
+    <div class="image-gallery">
+        <img src="{% static 'birthday_app/vandu1.jpg' %}" class="gallery-img" alt="Memory 1">
+        <img src="{% static 'birthday_app/vandu2.jpg' %}" class="gallery-img" alt="Memory 2">
+        <img src="{% static 'birthday_app/vandu3.jpg' %}" class="gallery-img" alt="Memory 3">
+        <img src="{% static 'birthday_app/vandu4.jpg' %}" class="gallery-img" alt="Memory 4">
+    </div>
+</div>
+{% endblock content %}

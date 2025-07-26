@@ -1,0 +1,124 @@
+{% extends "birthday_app/base.html" %}
+{% load static %}
+
+{% block styles %}
+<style>
+  #gift-container {
+    display: none; /* Hidden initially */
+    max-width: 900px;
+    width: 90vw;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    border-radius: 12px;
+    text-align: center;
+    margin: 2rem auto;
+  }
+  #gift-container h1 {
+    font-family: 'Benguiat', 'ITC Benguiat', serif; 
+  }
+  .gift-gallery {
+    margin-top: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+  .gift-item {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  border-radius: 10px;
+  overflow: hidden;
+  /* Remove fixed width/height here! */
+}
+
+.gift-item img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 160px;    /* Limit to avoid giant images, adjust as needed */
+  max-height: 160px;   /* or set 100% if you want no restriction */
+  object-fit: contain; /* Shows whole photo, no cropping */
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  background: #f6e3ff;
+}
+
+  
+</style>
+{% endblock styles %}
+
+{% block content %}
+<div id="gift-container" class="container">
+  <h1>GIFTY TIME!</h1>
+  <div class="gift-gallery">
+    <div class="gift-item">
+      <img src="{% static 'birthday_app/hugs.png' %}" alt="Unlimited Hugs" />
+    </div>
+    <div class="gift-item">
+      <img src="{% static 'birthday_app/cuddles.png' %}" alt="Unlimited Cuddles" />
+    </div>
+    <div class="gift-item">
+      <img src="{% static 'birthday_app/reassurance.png' %}" alt="Unlimited Reassurance" />
+    </div>
+    <div class="gift-item">
+      <img src="{% static 'birthday_app/movie.png' %}" alt="Movie of your choice" />
+    </div>
+    <div class="gift-item">
+      <img src="{% static 'birthday_app/flowers.png' %}" alt="Unlimited Flowers" />
+    </div>
+    <div class="gift-item">
+      <img src="{% static 'birthday_app/nightdance.png' %}" alt="Dance Night" />
+    </div>
+    <div class="gift-item">
+      <img src="{% static 'birthday_app/snacks.png' %}" alt="Late Night Snacks" />
+    </div>
+    <div class="gift-item">
+      <img src="{% static 'birthday_app/attention.png' %}" alt="Attention and Love" />
+    </div>
+    <div class="gift-item">
+      <img src="{% static 'birthday_app/main_gift.png' %}" alt="Main Gift" />
+    </div>
+  </div>
+
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const CORRECT_ANSWER = "leaves";
+    const giftContainer = document.getElementById('gift-container');
+
+    function askRiddle() {
+      while(true) {
+        let answer = prompt(
+          "Answer this riddle to enter:\n\n" +
+          "Walk on the living, they don't even mumble.\n" +
+          "Walk on the dead, they mutter and grumble." +
+          "What are they?"
+        );
+        if (answer === null) {
+          if(confirm("You need to answer the riddle to enter. Try again?")) {
+            continue;
+          } else {
+            document.body.innerHTML = "<p style='text-align:center; font-size:1.8em; margin: 50px;'>Access Denied. Reload the page to try again.</p>";
+            return false;
+          }
+        }
+        if (answer.trim().toLowerCase() === CORRECT_ANSWER) {
+          return true;
+        } else {
+          alert("Incorrect answer. Please try again.");
+        }
+      }
+    }
+
+    if (askRiddle()) {
+      giftContainer.style.display = 'block';
+    }
+  });
+</script>
+{% endblock content %}

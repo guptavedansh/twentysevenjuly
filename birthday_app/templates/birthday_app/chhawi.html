@@ -1,0 +1,90 @@
+{% extends 'birthday_app/base.html' %}
+{% load static %}
+{% block styles %}
+<style>
+.birthday-message-container {
+    background: linear-gradient(120deg, #fff8fc, #ffeefa 85%, #e1bee7);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(210, 161, 255, 0.17);
+    margin: 40px auto 24px auto;
+    max-width: 650px;
+    padding: 46px 30px 38px 30px;
+    text-align: center;
+    position: relative;
+}
+
+.birthday-message-container h2 {
+    color: #ca57e2;
+    font-family: 'Benguiat', 'ITC Benguiat', serif;
+    letter-spacing: 1.2px;
+    font-size: 2rem;
+    margin-bottom: 26px;
+}
+
+.birthday-message-container p {
+    color: #434161;
+    font-size: 1.25rem;
+    margin-top: 0;
+    line-height: 1.75;
+    white-space: pre-line;
+}
+
+.image-gallery {
+    margin: 36px auto 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+}
+
+.gallery-img {
+    width: 500px;
+    height: 500px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    object-fit: cover;
+    display: block;
+    background: #f6e3ff;
+    border: 2.5px solid #ce41e7ff;
+    transition: transform 0.2s;
+}
+
+.gallery-img:hover {
+    transform: scale(1.045);
+}
+
+/* Responsive tweaks */
+@media (max-width: 700px) {
+    .birthday-message-container {
+        padding: 26px 6vw 23px 6vw;
+        max-width: 98vw;
+    }
+    .gallery-img {
+        width: 500px;
+        height: 500px;
+    }
+}
+</style>
+{% endblock styles %}
+
+{% block content %}
+<div class="birthday-message-container">
+    <h2>
+        From your Bestie and one of the people who was needed here the most.
+    </h2>
+    <p>
+        Happy Birthday Anuuu ❤️,
+
+        First of all I miss you so much and I wish I could teleport to you right now :’( I couldn't have asked for a better soulmate, I am so thankful to have you in my life and I love you so much. I can't wait to celebrate milestones with you for the next 70 years. I want you to know that I am super proud of you for everything you have achieved and for everything you will achieve in the future. I know birthdays get bitter sweet as we grow older, but just know that you have loads of people who love you so much. I hope this year brings more success and happiness in your life. I love you and I miss you 💕.
+        From,
+        Chhawi <3
+    </p>
+    <div class="image-gallery">
+        <img src="{% static 'birthday_app/chhawi1.jpg' %}" class="gallery-img" alt="Memory 1">
+        <img src="{% static 'birthday_app/chhawi2.jpg' %}" class="gallery-img" alt="Memory 2">
+        <img src="{% static 'birthday_app/chhawi3.jpg' %}" class="gallery-img" alt="Memory 3">
+        <img src="{% static 'birthday_app/chhawi4.jpg' %}" class="gallery-img" alt="Memory 4">
+        <!-- Add more images as needed -->
+    </div>
+</div>
+{% endblock content %}
