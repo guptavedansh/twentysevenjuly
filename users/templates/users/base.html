@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="">
+        <style>
+            body {
+                background: linear-gradient(135deg, #f9f6faff, #fefdfeff, #d7ccd9, #E0BEFF, #E6BEFF, #DBA1FF, #D1A1FF, #ce41e7ff);
+                min-height: 100vh;
+                margin: 0;
+                font-family: sans-serif;
+                justify-content:center;
+            }
+            .bottom-nav {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background: rgba(230, 190, 255, 0.9); /* pastel translucent purple that fits your palette */
+                box-shadow: 0 -2px 10px rgba(210, 161, 255, 0.4);
+                padding: 10px 0;
+                z-index: 1000; /* above other content */
+                font-family: 'Benguiat', 'ITC Benguiat', serif; /* your Stranger Things font */
+                display: flex;
+                justify-content: center;
+            }
+
+            .bottom-nav ul {
+                list-style: none;
+                display: flex;
+                gap: 30px;
+                margin: 0;
+                padding: 0 20px;
+            }
+
+            .bottom-nav ul li a {
+                color: #1a1a1a; /* black text */
+                text-decoration: none;
+                font-size: 1.2rem;
+                transition: color 0.3s ease;
+            }
+
+            .bottom-nav ul li a:hover,
+            .bottom-nav ul li a:focus {
+                color: #ce41e7ff; /* glowing Stranger Things purple */
+                text-shadow:
+                    0 0 5px #ce41e7ff,
+                    0 0 10px #db68f9ff,
+                    0 0 20px #e08cff;
+            }
+
+            body {
+                padding-bottom: 60px; /* prevent page content from being hidden under the nav */
+            }
+
+
+            {% block styles %}
+            {% endblock styles %}
+        </style>
+    </head>
+    <body>
+
+        {% block content %} {% endblock content %}
+
+    </body>
+</html>
